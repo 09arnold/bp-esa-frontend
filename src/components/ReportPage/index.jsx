@@ -250,6 +250,10 @@ class ReportPage extends PureComponent {
     this.setState({ modalContent: report, type });
   }
 
+  redirectToAllocations(engagementId) {
+    return window.open(`https://allocations.andela.com/engagements/open/${engagementId}`);
+  }
+
   renderAutomationStatus(automationStatus, report, type) {
     return (
       <span>
@@ -294,7 +298,9 @@ class ReportPage extends PureComponent {
           {report.fellowName}
 
         </td>
-        <td>{report.partnerName}</td>
+        <td className="engagement" onClick={() => this.redirectToAllocations(report.engagementId)}>
+          {report.partnerName}
+        </td>
         <td>{report.type}</td>
         <td>{this.renderAutomationStatus(report.slackAutomation.success, report, 'slack')}</td>
         <td>{this.renderAutomationStatus(report.emailAutomation.success, report, 'email')}</td>

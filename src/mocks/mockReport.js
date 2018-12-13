@@ -4,6 +4,7 @@ export default [
     fellowName: 'Tunmise',
     fellowId: '-L6q5mRZ0jk9jf-RVjdg',
     partnerName: 'Andela',
+    engagementId: '0061a00000F41K1AAJ',
     type: 'Onboarding',
     slackAutomation: {
       success: true,
@@ -45,6 +46,7 @@ export default [
     id: 2,
     fellowName: 'Shakira',
     fellowId: '-L-ePhsI4a2gIAXXGQWF',
+    engagementId: '0061a00000QnJL9AAN',
     partnerName: 'ESA',
     type: 'Onboarding',
     slackAutomation: {
@@ -87,6 +89,7 @@ export default [
     id: 3,
     fellowName: 'Angela',
     fellowId: '-L6q5mRZ0jk9jf-RVjdg',
+    engagementId: '0061a00000QInvBAAT',
     partnerName: 'MEA',
     type: 'Offboarding',
     slackAutomation: {
@@ -129,6 +132,7 @@ export default [
     id: 4,
     fellowName: 'Phiona',
     fellowId: '-L6q5mRZ0jk9jf-RVjdg',
+    engagementId: '0061a00000QH3ySAAT',
     partnerName: 'New',
     type: 'Offboarding',
     slackAutomation: {
@@ -171,6 +175,7 @@ export default [
     id: 5,
     fellowName: 'Ndagire',
     fellowId: '-L-ePhsI4a2gIAXXGQWF',
+    engagementId: '0061a00000F41K1AAJ',
     partnerName: 'Goal',
     type: 'Offboarding',
     slackAutomation: {
@@ -213,6 +218,7 @@ export default [
     id: 6,
     fellowName: 'Kyra',
     fellowId: '-L-ePhsI4a2gIAXXGQWF',
+    engagementId: '0061a00000QIECpAAP',
     partnerName: 'Light',
     type: 'Onboarding',
     slackAutomation: {
@@ -255,6 +261,7 @@ export default [
     id: 7,
     fellowName: 'Lehru',
     fellowId: '-L-ePhsI4a2gIAXXGQWF',
+    engagementId: '0061a00000F41K1AAJ',
     partnerName: 'Andela',
     type: 'Onboarding',
     slackAutomation: {
@@ -299,6 +306,7 @@ export default [
     id: 8,
     fellowName: 'Trust',
     fellowId: '-L-ePhsI4a2gIAXXGQWF',
+    engagementId: '0061a00000F41K1AAJ',
     partnerName: 'OpenMRS',
     type: 'Onboarding',
     slackAutomation: {
@@ -341,6 +349,7 @@ export default [
     id: 9,
     fellowName: 'Abdul',
     fellowId: '-L-ePhsI4a2gIAXXGQWF',
+    engagementId: '0061a00000F41K1AAJ',
     partnerName: 'Kickoff',
     type: 'Onboarding',
     slackAutomation: {
@@ -383,6 +392,7 @@ export default [
     id: 10,
     fellowName: 'Yury',
     fellowId: '-L-ePhsI4a2gIAXXGQWF',
+    engagementId: '0061a00000F41K1AAJ',
     partnerName: 'People',
     type: 'Onboarding',
     slackAutomation: {
@@ -425,6 +435,7 @@ export default [
     id: 11,
     fellowName: 'Tunmise',
     fellowId: '-L-ePhsI4a2gIAXXGQWF',
+    engagementId: '0061a00000F41K1AAJ',
     partnerName: 'ESA',
     type: 'Onboarding',
     slackAutomation: {
@@ -467,6 +478,7 @@ export default [
     id: 12,
     fellowName: 'Tunmise',
     fellowId: '-L-ePhsI4a2gIAXXGQWF',
+    engagementId: '0061a00000F41K1AAJ',
     partnerName: 'ESA',
     type: 'Onboarding',
     slackAutomation: {
@@ -509,6 +521,7 @@ export default [
     id: 13,
     fellowName: 'Town',
     fellowId: '-L-ePhsI4a2gIAXXGQWF',
+    engagementId: '0061a00000F41K1AAJ',
     partnerName: 'Ace',
     type: 'Onboarding',
     slackAutomation: {
@@ -551,6 +564,7 @@ export default [
     id: 14,
     fellowName: 'Create',
     fellowId: '-L-ePhsI4a2gIAXXGQWF',
+    engagementId: '0061a00000F41K1AAJ',
     partnerName: 'App',
     type: 'Onboarding',
     slackAutomation: {
@@ -593,6 +607,7 @@ export default [
     id: 15,
     fellowName: 'Tunmise',
     fellowId: '-L-ePhsI4a2gIAXXGQWF',
+    engagementId: '0061a00000F41K1AAJ',
     partnerName: 'ESA',
     type: 'Onboarding',
     slackAutomation: {
@@ -635,6 +650,7 @@ export default [
     id: 16,
     fellowName: 'Hamid',
     fellowId: '-L-ePhsI4a2gIAXXGQWF',
+    engagementId: '0061a00000F41K1AAJ',
     partnerName: 'Partner',
     type: 'Onboarding',
     slackAutomation: {
@@ -677,6 +693,7 @@ export default [
     id: 17,
     fellowName: 'Night',
     fellowId: '-L-ePhsI4a2gIAXXGQWF',
+    engagementId: '0061a00000F41K1AAJ',
     partnerName: 'Crew',
     type: 'Onboarding',
     slackAutomation: {
@@ -719,6 +736,7 @@ export default [
     id: 18,
     fellowName: 'Oluwa',
     fellowId: '-L-ePhsI4a2gIAXXGQWF',
+    engagementId: '0061a00000F41K1AAJ',
     partnerName: 'Treasure',
     type: 'Onboarding',
     slackAutomation: {

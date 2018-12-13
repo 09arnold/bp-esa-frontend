@@ -12,6 +12,7 @@ const sampleReports = [
     id: 1,
     fellowName: 'Tunmise',
     partnerName: 'Andela',
+    engagementId: '0061a00000F41K1AAJ',
     type: 'Onboarding',
     slackAutomation: {
       success: false,
@@ -38,6 +39,7 @@ const sampleReports = [
     id: 2,
     fellowName: 'Shakira',
     partnerName: 'ESA',
+    engagementId: '0061a00000F41K1AAJ',
     type: 'Offboarding',
     slackAutomation: {
       success: true,
@@ -417,6 +419,7 @@ describe('<ReportPage />', () => {
       redirectToAIS.simulate('click');
       expect(global.open).toHaveBeenCalled();
     });
+
     it('should render a slack modal when the slack status icons are clicked', () => {
       const component = getComponent();
       component.setState({ reportData: sampleReports });
@@ -436,6 +439,14 @@ describe('<ReportPage />', () => {
       component.setState({ reportData: sampleReports });
       component.find('.fa.fa-info-circle.success').at(2).simulate('click');
       expect(component.state('type')).toEqual('freckle');
+    });
+
+    it('should redirect to the engagement Allocations page when you click the partner name', () => {
+      const component = getComponent();
+      const wrapper = component.find('.table-body').find('tr').at(0).find('.engagement');
+      global.open = jest.fn();
+      wrapper.simulate('click');
+      expect(global.open).toHaveBeenCalled();
     });
   });
 });
