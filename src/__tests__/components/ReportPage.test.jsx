@@ -5,6 +5,7 @@ const props = {
   currentUser: {},
   history: {},
   removeCurrentUser: jest.fn(),
+  formatDates: jest.fn(),
 };
 
 const sampleReports = [
@@ -12,43 +13,43 @@ const sampleReports = [
     id: 1,
     fellowName: 'Tunmise',
     partnerName: 'Andela',
-    type: 'Onboarding',
-    slackAutomation: {
-      success: false,
-      slackChannels: [
+    type: 'onboarding',
+    slackAutomations: {
+      status: 'failure',
+      slackActivities: [
         {
-          slackChannel: 'andela-int',
+          channelName: 'andela-int',
           type: 'Addition',
         },
         {
-          slackChannel: 'andela',
+          channelName: 'andela',
           type: 'Removal',
         },
       ],
     },
-    freckleAutomation: {
-      success: false,
+    freckleAutomations: {
+      status: 'failure',
     },
-    emailAutomation: {
-      success: false,
+    emailAutomations: {
+      status: 'failure',
     },
-    date: '2017-09-29 ',
+    updatedAt: '2017-09-29 ',
   },
   {
     id: 2,
     fellowName: 'Shakira',
     partnerName: 'ESA',
-    type: 'Offboarding',
-    slackAutomation: {
-      success: true,
+    type: 'offboarding',
+    slackAutomations: {
+      status: 'success',
     },
-    freckleAutomation: {
-      success: true,
+    freckleAutomations: {
+      status: 'success',
     },
-    emailAutomation: {
-      success: true,
+    emailAutomations: {
+      status: 'success',
     },
-    date: '2018-09-29',
+    updatedAt: '2018-09-29',
   },
 ];
 
@@ -411,7 +412,9 @@ describe('<ReportPage />', () => {
     });
 
     it('should redirect to the AIS page when you click the fellow name', () => {
+      // eslint-disable-next-line no-undef
       const component = getComponent();
+      component.setState({ reportData: sampleReports });
       const redirectToAIS = component.find('.table-body').find('tr').at(0).find('.fellow');
       global.open = jest.fn();
       redirectToAIS.simulate('click');

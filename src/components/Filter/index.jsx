@@ -87,6 +87,7 @@ class Filter extends PureComponent {
     );
   }
 
+
   renderFilterOptions() {
     const { options } = this.props;
     const { filterOptionsIsVisible } = this.state;

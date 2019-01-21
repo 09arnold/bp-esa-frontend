@@ -8,6 +8,7 @@ const props = {
   currentUser: {
     additionalUserInfo: { profile: { name: 'Kelvin', picture: 'ddff' } },
   },
+  formatDates: jest.fn(),
   isModalOpen: false,
   closeModal: jest.fn(),
   modalType: 'slack',
@@ -16,37 +17,46 @@ const props = {
     fellowName: 'Tunmise',
     partnerName: 'Andela',
     type: 'Onboarding',
-    slackAutomation: {
-      success: true,
-      slackChannels: [
+    slackAutomations: {
+      status: 'success',
+      slackActivities: [
         {
-          slackChannel: 'andela-int',
+          channelName: 'andela-int',
           type: 'Addition',
-          success: true,
+          status: 'success',
         },
         {
-          slackChannel: 'andela',
+          channelName: 'andela',
           type: 'Removal',
-          success: true,
+          status: 'success',
         },
       ],
     },
-    freckleAutomation: {
-      success: false,
+    freckleAutomations: {
+      status: 'failure',
+      freckleActivities: [
+        {
+          status: 'failure',
+          statusMessage: 'Request failed with status code 403',
+          freckleUserId: null,
+          projectId: null,
+          type: 'projectCreation',
+        },
+      ],
     },
-    emailAutomation: {
-      success: true,
-      email: [{
+    emailAutomations: {
+      status: 'success',
+      emailActivities: [{
         id: 1,
         emailTo: 'Tunmise.ogunniyi@andela.com',
         subject: 'Onboarding',
-        success: true,
+        status: 'success',
       },
       {
         id: 2,
         emailTo: 'Tunmise.ogunniyi@andela.com',
         subject: 'Onboarding',
-        success: true,
+        status: 'success',
       },
       ],
     },
@@ -76,16 +86,5 @@ describe('Automation details', () => {
       modalType: 'freckle',
     });
     expect(getComponent()).toMatchSnapshot();
-  });
-});
-
-describe('Automation details methods', () => {
-  it('should call the method closeModal', () => {
-    const component = mount(<ReportPage {...props} />);
-    const componentInstance = component.instance();
-    const spy = jest.spyOn(componentInstance, 'closeModal');
-    component.find('.fa.fa-info-circle.success').at(0).simulate('click');
-    component.find('.fas.fa-times').at(0).simulate('click');
-    expect(spy).toHaveBeenCalledTimes(1);
   });
 });

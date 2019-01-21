@@ -4,7 +4,7 @@ import './styles.scss';
 
 class AutomationDetails extends PureComponent {
   renderAutomation = (status) => {
-    if (status) {
+    if (status === 'success') {
       return <h4 className="modal-values">Success</h4>;
     }
     return <h4 className="modal-values">Failed</h4>;
@@ -26,27 +26,36 @@ class AutomationDetails extends PureComponent {
     </div>
   );
 
-  renderCommonDetails = (modalContent, modalType) => (
-    <div className="flex-container">
-      <div className="modal-data">
-        <h2 className="modal-labels"> Developer Name:</h2>
-        <h4 className="modal-labels"> Partner Name:</h4>
-        <h4 className="modal-labels"> Date:</h4>
-        <h4 className="modal-labels"> Status:</h4>
+  renderCommonDetails = (modalContent, modalType) => {
+    const { formatDates } = this.props;
+    return (
+      <div className="flex-container">
+        <div className="modal-data">
+          <h2 className="modal-labels"> Developer Name:</h2>
+          <h4 className="modal-labels"> Partner Name:</h4>
+          <h4 className="modal-labels"> Date:</h4>
+          <h4 className="modal-labels"> Status:</h4>
+          {modalType === 'freckle' && <h4 className="modal-labels"> Type:</h4>}
+        </div>
+        <div className="modal-data">
+          <h4 className="modal-values">{modalContent.fellowName}</h4>
+          <h4 className="modal-values">{modalContent.partnerName}</h4>
+          <h4 className="modal-values">{formatDates(modalContent.updatedAt)}</h4>
+          {modalType === 'slack' && this.renderAutomation(modalContent.slackAutomations.status)}
+          {modalType === 'email' && this.renderAutomation(modalContent.emailAutomations.status)}
+          {modalType === 'freckle' && this.renderAutomation(modalContent.freckleAutomations.status)}
+          {modalType === 'freckle' && (
+          <h4 className="modal-values">
+            {modalContent.freckleAutomations.freckleActivities.map(activity => activity.type)}
+          </h4>
+          )}
+        </div>
       </div>
-      <div className="modal-data">
-        <h4 className="modal-values">{modalContent.fellowName}</h4>
-        <h4 className="modal-values">{modalContent.partnerName}</h4>
-        <h4 className="modal-values">{modalContent.date}</h4>
-        {modalType === 'slack' && this.renderAutomation(modalContent.slackAutomation.success)}
-        {modalType === 'email' && this.renderAutomation(modalContent.emailAutomation.success)}
-        {modalType === 'freckle' && this.renderAutomation(modalContent.freckleAutomation.success)}
-      </div>
-    </div>
-  );
+    );
+  }
 
   renderModalTable = (modalContent, modalType) => {
-    const contents = modalType === 'email' ? modalContent.emailAutomation.email : modalContent.slackAutomation.slackChannels;
+    const contents = modalType === 'email' ? modalContent.emailAutomations.emailActivities : modalContent.slackAutomations.slackActivities;
     return (
       <div className="table-header-details">
         <table className="details-table">
@@ -59,7 +68,7 @@ class AutomationDetails extends PureComponent {
           </thead>
         </table>
         {contents.map(content => (
-          <div key={modalType === 'email' ? content.id : content.slackChannel} className="table-body-details">
+          <div key={modalType === 'email' ? content.id : content.channelName} className="table-body-details">
             <table className="details-table">
               <tbody>
                 <tr>
@@ -74,7 +83,7 @@ class AutomationDetails extends PureComponent {
   }
 
   renderTableData = (content, modalType) => {
-    let automationMedia = content.slackChannel;
+    let automationMedia = content.channelName;
     let automationTitle = content.type;
     if (modalType === 'email') {
       automationMedia = content.emailTo;
@@ -114,6 +123,7 @@ AutomationDetails.propTypes = {
   closeModal: PropTypes.func.isRequired,
   modalContent: PropTypes.object.isRequired,
   modalType: PropTypes.string.isRequired,
+  formatDates: PropTypes.func.isRequired,
 
 };
 

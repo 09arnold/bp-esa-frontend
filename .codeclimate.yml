@@ -2,3 +2,11 @@ exclude_patterns:
 - "src/__tests__/"
 - "src/mocks/mockReport.js"
 - "config/"
+version: "2"         
+checks:
+  similar-code:
+    config:
+      threshold: 75
+  identical-code:
+    config:
+      threshold: 75
